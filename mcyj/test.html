@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name='HandheldFriendly' content='True'/>
+    <meta name='viewport' content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;'/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>开始测试</title>
+    <link rel="stylesheet" href="resource/style.css"/>
+    <script>
+        var items = [];
+
+        function set_choice(obj) {
+            var val = obj.value;
+            if (items.length <= 0) {
+                for (var i = 1; i <= 4; i++) {
+                    items[i] = document.getElementById('item_' + i);
+                }
+            }else{
+                for(var i=1;i<=4;i++){
+                    items[i].style.backgroundColor = 'rgba(0, 0, 0, .5)';
+                }
+            }
+
+            items[val].style.backgroundColor = 'rgba(255, 255, 0, .3)';
+
+
+        }
+    </script>
+</head>
+<body>
+
+<section class="question">
+    <div class="question-wrap">
+        <span class="txt">宠物店里有各种宠物，现在给你4种选择，相比之下你最想养哪一种？</span>
+    </div>
+</section>
+
+
+<form action="action.php" method="post">
+    <section class="answers">
+        <div class="answer-item" id="item_1">
+            <div class="outer">
+                <label for="yang1" class="selection">A</label>
+                <label for="yang1" class="value">狼犬</label>
+            </div>
+        </div>
+
+        <div class="answer-item" id="item_2">
+            <div class="outer">
+                <label for="yang2" class="selection">B</label>
+                <label for="yang2" class="value">波斯猫</label>
+            </div>
+        </div>
+
+        <div class="answer-item" id="item_3">
+            <div class="outer">
+                <label for="yang3" class="selection">C</label>
+                <label for="yang3" class="value">变色龙</label>
+            </div>
+        </div>
+
+
+        <div class="answer-item" id="item_4">
+            <div class="outer">
+                <label for="yang4" class="selection">D</label>
+                <label for="yang4" class="value">不养任何动物</label>
+            </div>
+        </div>
+
+
+    </section>
+    <ol style="overflow: hidden;height: 0;width: 0;">
+        <li><input type="radio" name="yang" id="yang1" value="1" onchange="set_choice(this)"/><label
+                for="yang1">狼犬</label></li>
+        <li><input type="radio" name="yang" id="yang2" value="2" onchange="set_choice(this)"/><label
+                for="yang2">波斯猫</label></li>
+        <li><input type="radio" name="yang" id="yang3" value="3" onchange="set_choice(this)"/><label
+                for="yang3">变色龙</label></li>
+        <li><input type="radio" name="yang" id="yang4" value="4" onchange="set_choice(this)"/><label
+                for="yang4">不养任何动物</label></li>
+    </ol>
+    <input class="start" type="submit" value="查看结果"/>
+</form>
+
+</body>
+</html>
